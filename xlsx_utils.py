@@ -15,6 +15,32 @@ def read(file_path, sheet_name):
     return _result
 
 
+#
+def merge_files(files):
+    # files:[{"path":"", "sheet":"", "key_column":""}, {"path":"", "sheet":"", "key_column":""}]
+    # 读取表格数据
+    _data_dict = {}
+    for _file in files:
+        _data_dict[_file['path']] = read(_file['path'], _file['sheet'])
+    # print(f'_data_dict:{_data_dict}')
+    # 主表
+    _main_data = _data_dict[files[0]['path']]
+    # print(f'_main_data:{_main_data}')
+    #
+    _result = []
+    for _row in _main_data[1:]:
+        # print(f'_row[origin]:{_row}')
+        _join_data = _data_dict[files[1]['path']]
+        for _join_row in _join_data[1:]:
+            if _row[1] == _join_row[1]:
+                _res = _row.copy()
+                _res.extend(_join_row[2:])
+                _result.append(_res)
+        # print(f'_row[result]:{_row}')
+    print(f'_result:{_result}')
+    return _result
+
+
 # 读多个excel表格数据，合并，去重
 def merge(source_path, sheet_name):
     _data1 = []
