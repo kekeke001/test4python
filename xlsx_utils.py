@@ -2,7 +2,7 @@ import xlrd
 import xlwt
 
 
-# 读数据
+# read
 def read(file_path, sheet_name):
     # print(f'Try to read sheet {sheet_name} from xlsx-file {file_path}')
     _workbook = xlrd.open_workbook(file_path)  # get workbook 获取工作簿
