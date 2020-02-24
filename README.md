@@ -12,4 +12,4 @@
 1. 打开Git Bash Here
 2. git add . :添加所有文件到暂存区 （注：不会有任何提示消息）eg:git add xlsx_utils.py
 3. git commit -m ‘注释内容’ :提交所有文件到远程，注释内容一定要写详细，为了以后可以更加清楚自己改动的具体内容  eg:git commit -m 'First try of git'
-③ git push 第一次push会有提示，根据提示命令进行  eg:push   git push origin master
+4. git push 第一次push会有提示，根据提示命令进行  eg:git push origin master
